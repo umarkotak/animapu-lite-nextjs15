@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 import BottomMenuBar from "../components/BottomMenuBar"
 import MangaCard from "../components/MangaCard"
 import animapuApi from "../apis/AnimapuApi"
-import ChangeSourceModal from "../components/ChangeSourceModal"
 import ChangeSourceModalOnly from "../components/ChangeSourceModalOnly"
 import { toast } from 'react-toastify'
 
@@ -94,14 +93,6 @@ export default function Home() {
     <div className={`${darkMode ? "dark bg-stone-900" : "bg-[#d6e0ef]"} min-h-screen pb-60`}>
       <div className="bg-[#2b2d42] h-[140px] mb-[-100px]">
         <div className="container mx-auto max-w-[768px] pt-2">
-          {/* <div className="flex justify-between">
-            <span className="px-4 mb-4 text-white">
-              <ChangeSourceModal text={activeSource} />
-            </span>
-            <span className="px-4 mb-4 text-white">
-            </span>
-          </div> */}
-
           <h1 className='text-white text-xl mx-2 pt-2'><i className='fa fa-search'></i> Search</h1>
 
           <div className='flex pt-2 mx-2 rounded-lg bg-[#2b2d42] text-white items-center justify-between'>

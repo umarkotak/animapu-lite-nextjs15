@@ -4,6 +4,7 @@ import BottomMenuBar from "../components/BottomMenuBar"
 import MangaCard from "../components/MangaCard"
 import animapuApi from "../apis/AnimapuApi"
 import Manga from "../models/Manga"
+import { CloudIcon, FolderIcon } from 'lucide-react'
 
 var tempAllMangas = []
 var limit = 16
@@ -122,9 +123,9 @@ export default function Home() {
             <span className="px-4 mb-4 text-white">
               History
             </span>
-            <span className="px-4 mb-4 text-white">
-              <button className={`mx-2 ${getTabColor("local")}`} onClick={()=>{setActiveTab("local")}}><i className="fa-solid fa-file"></i> Local</button>
-              <button className={`mx-2 ${getTabColor("online")}`} onClick={()=>{setActiveTab("online")}}><i className="fa-solid fa-cloud"></i> Online</button>
+            <span className="px-4 mb-4 text-white flex gap-2">
+              <button className={`mx-2 ${getTabColor("local")} flex items-center gap-1`} onClick={()=>{setActiveTab("local")}}><FolderIcon size={18} /> Local</button>
+              <button className={`mx-2 ${getTabColor("online")} flex items-center gap-1`} onClick={()=>{setActiveTab("online")}}><CloudIcon size={18} /> Online</button>
             </span>
           </div>
         </div>

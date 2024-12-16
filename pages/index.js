@@ -7,7 +7,7 @@ import MangaCard from "../components/MangaCard"
 import ChangeSourceModalOnly from "../components/ChangeSourceModalOnly"
 import animapuApi from "../apis/AnimapuApi"
 import uuid from 'react-uuid'
-import { CoffeeIcon, GlobeIcon, MoonIcon, StarIcon, SunIcon, TvIcon } from 'lucide-react'
+import { CoffeeIcon, GlobeIcon, LogInIcon, MoonIcon, RotateCwIcon, StarIcon, SunIcon, TvIcon } from 'lucide-react'
 import { toast } from 'react-toastify'
 
 var onApiCall = false
@@ -171,15 +171,15 @@ export default function Home() {
         <div className="bg-[#2b2d42] h-[140px] mb-[-100px]">
           <div className="container mx-auto max-w-[768px] pt-2">
             <div className="flex justify-between">
-              <span className="px-4 mb-4 text-white">
-                {/* <ChangeSourceModal text={activeSource} /> */}
+              <span className="px-4 mb-4 text-white text-xl">
+                Animapu Lite
               </span>
               <span className="px-4 mb-4 text-white">
                 {
                   loggedInUser.email ? <>
                     <Link href="/setting" className="text-[#3db3f2]">Hello, {loggedInUser.email}</Link>
                   </> : <>
-                    <Link href="/setting" className="text-[#3db3f2]"><i className="fa fa-right-to-bracket"></i> Login</Link>
+                    <Link href="/setting" className="text-[#3db3f2] flex items-center ga-1"><LogInIcon size={14} /> Login</Link>
                   </>
                 }
               </span>
@@ -319,10 +319,10 @@ export default function Home() {
                 }
               </button>
               <button
-                className={`border block w-full bg-[#2b2d42] hover:bg-[#3db3f2] text-white rounded mb-2 p-2 text-center ${mangas.length > 0 ? "hidden" : "block"}`}
+                className={`border w-full bg-[#2b2d42] hover:bg-[#3db3f2] text-white rounded mb-2 p-2 text-center flex items-center gap-1 ${mangas.length > 0 ? "hidden" : "block"}`}
                 onClick={() => GetLatestManga(false)}
               >
-                <i className='fa fa-rotate'></i> Retry
+                <RotateCwIcon size={18} /> Retry
               </button>
             </div>
           </div>

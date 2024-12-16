@@ -2,7 +2,6 @@ import { useState, useEffect, Fragment } from 'react'
 import Link from 'next/link'
 
 import BottomMenuBar from "../components/BottomMenuBar"
-import ChangeSourceModal from "../components/ChangeSourceModal"
 
 export default function TestScrap() {
   const [darkMode, setDarkMode] = useState(true)

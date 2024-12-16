@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import animapuApi from "../apis/AnimapuApi"
 import Manga from "../models/Manga"
-import { HeartIcon, Share2Icon, StarIcon, XIcon } from 'lucide-react'
+import { BookIcon, Eye, EyeIcon, Heart, HeartIcon, PlayIcon, Share2Icon, StarIcon, XIcon } from 'lucide-react'
 import { toast } from 'react-toastify'
 
 export default function QuickMangaModal(props) {
@@ -175,12 +175,6 @@ export default function QuickMangaModal(props) {
 
   return(
     <div>
-      {/* <div className="absolute top-0 right-0 p-1 rounded-lg text-black hover:text-[#ec294b] z-10" onClick={()=>setShow(!show)}>
-        <button className="drop-shadow-sm bg-white bg-opacity-70 rounded-full w-[24px] h-[24px] leading-none">
-          <i className="text-sm fa-solid fa-ellipsis"></i>
-        </button>
-      </div> */}
-      {/* <div className="absolute top-[30px] right-0 p-1 rounded-lg text-black hover:text-[#ec294b] z-10" onClick={() => handleFollow()}> */}
       <div className="absolute top-1 right-1 p-1 rounded-lg text-black hover:text-[#ec294b] z-10" onClick={() => handleFollow()}>
         <button className="drop-shadow-sm bg-white bg-opacity-50 backdrop-blur rounded-full p-1">
           <span className={`${followed ? "text-[#ec294b]": ""}`}><HeartIcon size={20} /></span>
@@ -237,18 +231,15 @@ export default function QuickMangaModal(props) {
                       <div className=''>
                         <small>
                           <button className="block w-full bg-[#ec294b] hover:bg-[#B11F38] text-white mt-2 p-1 text-center rounded-full" onClick={() => handleFollow()}>
-                            <span className='text-xs'><i className="fa-solid fa-heart"></i> {followed ? "Un-Follow" : "Follow"}</span>
+                            <span className='text-xs flex gap-1 items-center justify-center'><HeartIcon size={14} /> {followed ? "Un-Follow" : "Follow"}</span>
                           </button>
                         </small>
-                        {/* <button className="block w-full bg-[#ebb62d] hover:bg-[#A57F1F] text-white mt-2 p-0  text-center rounded-full" onClick={() => handleUpvote()}>
-                          <small><i className="fa-solid fa-star"></i> Upvote</small>
-                        </button> */}
                         <small>
                           <Link
                             href={`/mangas/${manga.source}/${manga.source_id}?secondary_source_id=${manga.secondary_source_id}`}
-                            className="block w-full bg-[#3db3f2] hover:bg-[#318FC2] text-white mt-2 p-1 text-center rounded-full"
+                            className="block w-full bg-[#3db3f2] hover:bg-[#333d43] text-white mt-2 p-1 text-center rounded-full"
                           >
-                            <span className='text-xs'><i className="fa-solid fa-eye"></i> Detail</span>
+                            <span className='text-xs flex gap-1 items-center justify-center'><EyeIcon size={14} /> Detail</span>
                           </Link>
                         </small>
                         <small>
@@ -256,21 +247,22 @@ export default function QuickMangaModal(props) {
                             href={`/mangas/${manga.source}/${manga.source_id}/read/${startReadDecider(chapters)}?secondary_source_id=${manga.secondary_source_id}`}
                             className="block w-full bg-[#3db3f2] hover:bg-[#318FC2] text-white mt-2 p-1 text-center rounded-full"
                           >
-                            <span><i className="fa-solid fa-book"></i> Start Read</span>
+                            <span className='text-xs flex gap-1 items-center justify-center'><BookIcon size={14} /> Start Read</span>
                           </Link>
                         </small>
-                        <div onClick={()=>changeUrl(props.manga)}>
+                        {continueManga.title && <div onClick={()=>changeUrl(props.manga)}>
                           <small>
                             <Link
                               href={continueManga.last_link || "#"}
                               className={`${continueManga.title ? "block" : "hidden"} w-full bg-[#3db3f2] hover:bg-[#318FC2] text-white p-1 text-center mt-2 rounded-full`}
                             >
-                              <i className="fa-solid fa-play"></i> {
-                                continueManga.last_chapter_read ? `Cont Ch ${continueManga.last_chapter_read}` : "Continue"
-                              }
+                              <span className='text-xs flex gap-1 items-center justify-center'>
+                                <PlayIcon size={14} />
+                                Continue Ch {continueManga.last_chapter_read}
+                              </span>
                             </Link>
                           </small>
-                        </div>
+                        </div>}
                       </div>
                     </div>
                     <div className="col-span-3 p-2">
